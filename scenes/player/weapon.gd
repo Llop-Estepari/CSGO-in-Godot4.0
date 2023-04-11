@@ -91,7 +91,6 @@ func visuals_fire(cur_weapon_range : RayCast3D):
 	var shell = _shell_prefab.instantiate()
 	get_tree().get_root().add_child(shell)
 	shell.global_position = shell_spawner.global_position
-	print(shell.global_position, "    ", shell_spawner.global_position)
 	shell.look_at(look_at_point, Vector3.UP)
 	shell.init("9mm")
 
