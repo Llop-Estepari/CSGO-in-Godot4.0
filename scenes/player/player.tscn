@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d4aajvo4s2e0f"]
+[gd_scene load_steps=38 format=3 uid="uid://d4aajvo4s2e0f"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_c8uqp"]
 [ext_resource type="Script" path="res://scenes/player/weapons_manager.gd" id="2_v7xd5"]
@@ -216,6 +216,18 @@ tracks/5/path = NodePath(".:can_reload")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:can_shot")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -462,6 +474,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e45pj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acjud"]
+albedo_color = Color(0.572549, 0.478431, 0.45098, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pi41x"]
 resource_name = "wood_dark"
@@ -961,6 +976,7 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_c8uqp")
 
 [node name="CSBody" type="CollisionShape3D" parent="."]
@@ -987,7 +1003,6 @@ script = ExtResource("3_mpaf6")
 fire_rate = 0.25
 max_ammo = 90
 muzzle_flash_scale = Vector2(0.1, 0.1)
-can_shot = false
 
 [node name="Graphics" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158, -0.121706, -0.250106)
@@ -1029,6 +1044,7 @@ libraries = {
 one_shot = true
 
 [node name="shotgun" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
+visible = false
 script = ExtResource("3_mpaf6")
 max_ammo = 20
 mag_ammo = 4
@@ -1044,6 +1060,7 @@ transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0,
 transform = Transform3D(0.104692, 0, 0, 0, 0.104692, 0, -4.44089e-16, 0, 0.104692, 0.0940678, 0.11429, 1.49012e-08)
 mesh = SubResource("ArrayMesh_rn6u5")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_acjud")
 
 [node name="body" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
 transform = Transform3D(0.104692, 0, 0, 0, 0.104692, 0, 0, 0, 0.104692, -0.216798, 0.0685969, 0)

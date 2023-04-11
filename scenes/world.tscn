@@ -80,10 +80,10 @@ operation = 2
 size = Vector3(29, 4, 29)
 
 [node name="Enemy" type="CSGCylinder3D" parent="enviroment"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1.87307, 0.9, -3.27823)
 calculate_tangents = false
 use_collision = true
-collision_layer = 4
+collision_layer = 2
 collision_mask = 0
 radius = 0.3
 height = 1.8
@@ -97,73 +97,109 @@ transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.855
 radius = 0.3
 material = SubResource("StandardMaterial3D_kuu5y")
 
-[node name="stairs" type="Node3D" parent="enviroment"]
+[node name="Enemy2" type="CSGCylinder3D" parent="enviroment"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4.78893, 0.9, -5.88115)
+calculate_tangents = false
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+radius = 0.3
+height = 1.8
+sides = 6
+cone = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_xm7uo")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="enviroment/Enemy2"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.8558e-08, -1.12737, 0)
+radius = 0.3
+material = SubResource("StandardMaterial3D_kuu5y")
+
+[node name="Enemy3" type="CSGCylinder3D" parent="enviroment"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.835448, 0.9, -5.88115)
+calculate_tangents = false
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+radius = 0.3
+height = 1.8
+sides = 6
+cone = true
+smooth_faces = false
+material = SubResource("StandardMaterial3D_xm7uo")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="enviroment/Enemy3"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.8558e-08, -1.12737, 0)
+radius = 0.3
+material = SubResource("StandardMaterial3D_kuu5y")
+
+[node name="Stairs&2ndFloor" type="Node3D" parent="enviroment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.981215, -0.192916, 0, 0.192916, 0.981215, 0, 0, 0, 1, 3.0302, 0.0578184, 9.09231)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.2, 0.18, 1)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.98826, -0.152779, 0, 0.152779, 0.98826, 0, 0, 0, 1, 3.27203, 0.107571, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.3, 0.36, 1)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.98826, -0.152779, 0, 0.152779, 0.98826, 0, 0, 0, 1, 3.56788, 0.183532, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.3, 0.552512, 1)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.98826, -0.152779, 0, 0.152779, 0.98826, 0, 0, 0, 1, 3.85498, 0.281832, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.3, 0.690475, 1)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.98826, -0.152779, 0, 0.152779, 0.98826, 0, 0, 0, 1, 4.14377, 0.360951, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.3, 0.868098, 1)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.98826, -0.152779, 0, 0.152779, 0.98826, 0, 0, 0, 1, 4.42483, 0.435475, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(0.3, 1.00606, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46003, 0.454303, 9.092)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
-size = Vector3(2, 1.2, 1)
+size = Vector3(2, 1.2, 1.02)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="enviroment/stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46, 0.6, 5.592)
+[node name="CSGBox3D8" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46, 0.454, 5.592)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(2, 1.2, 8)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="enviroment/stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46, 0.6, -2.726)
+[node name="CSGBox3D10" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46, 0.450547, -2.726)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(2, 1.2, 2)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="enviroment/stairs"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96, 2, 5.592)
 material_override = SubResource("StandardMaterial3D_b1eqa")
 use_collision = true
 size = Vector3(1, 4, 8)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="enviroment/stairs"]
+[node name="StaticBody3D" type="StaticBody3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(0.959146, 0.282911, 0, -0.282911, 0.959146, 0, 0, 0, 1, 4.1306, 0.642556, 9.0951)
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enviroment/stairs/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enviroment/Stairs&2ndFloor/StaticBody3D"]
 transform = Transform3D(0.692206, -0.7217, 0, 0.7217, 0.692206, 0, 0, 0, 1, -0.464586, -0.256296, 0)
 shape = SubResource("BoxShape3D_4uv2l")
 
