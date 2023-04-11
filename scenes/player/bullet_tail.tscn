@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dly124wa5qqth"]
+
+[ext_resource type="Script" path="res://scenes/player/bullet_tail.gd" id="1_d2xt0"]
+[ext_resource type="Texture2D" uid="uid://c3f5wq8omruu" path="res://assets/guns/bullet_trail.png" id="2_3kh21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_000b6"]
+transparency = 4
+blend_mode = 1
+albedo_color = Color(1, 1, 0.74902, 0.458824)
+albedo_texture = ExtResource("2_3kh21")
+albedo_texture_msdf = true
+emission_enabled = true
+emission = Color(1, 1, 0.121569, 1)
+emission_energy_multiplier = 8.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mis1u"]
+material = SubResource("StandardMaterial3D_000b6")
+radius = 0.01
+height = 1.0
+radial_segments = 4
+rings = 1
+
+[node name="BulletTail" type="Node3D"]
+script = ExtResource("1_d2xt0")
+
+[node name="Trail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_mis1u")

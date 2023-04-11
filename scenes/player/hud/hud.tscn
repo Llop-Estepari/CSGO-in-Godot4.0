@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://crg5x86ncgwnw"]
+
+[ext_resource type="Script" path="res://scenes/player/hud/hud.gd" id="1_moqmb"]
+[ext_resource type="Theme" uid="uid://dxwj42fdlex1t" path="res://resources/hud_theme.tres" id="2_g5flb"]
+[ext_resource type="Texture2D" uid="uid://dlw13bfjgdjam" path="res://assets/hud/img_icons/hud_ammo_icon1.png" id="3_3aa4b"]
+[ext_resource type="Texture2D" uid="uid://c7n0w6w4axfgi" path="res://assets/hud/img_weapons/pistol.png" id="3_wr4uk"]
+[ext_resource type="Script" path="res://scenes/player/hud/weaponImage.gd" id="4_g8cs5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn0yu"]
+bg_color = Color(0.407843, 0.713726, 0.486275, 0.862745)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 7
+expand_margin_top = 3.0
+shadow_color = Color(0, 0, 0, 0.286275)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_6a0v4"]
+resource_name = "weapon_shoted"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pAmmo/wAmmo:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [30, 40, 30]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pAmmo/wAmmo:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.898039, 0.898039, 0.898039, 1), Color(1, 1, 0.74902, 1), Color(0.898039, 0.898039, 0.898039, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4hwh"]
+_data = {
+"weapon_shoted": SubResource("Animation_6a0v4")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pcv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwb81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_183xh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl7lm"]
+bg_color = Color(1, 1, 1, 0.164706)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_detail = 7
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_moqmb")
+
+[node name="crosshair" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1, 1)
+
+[node name="wInfo" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.980392)
+custom_minimum_size = Vector2(100, 148)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -178.0
+offset_right = 130.0
+offset_bottom = -30.0
+grow_vertical = 0
+rotation = -0.0174533
+theme_override_styles/panel = SubResource("StyleBoxFlat_fn0yu")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="wInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_g5flb")
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wInfo/HBoxContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_q4hwh")
+}
+
+[node name="pName" type="PanelContainer" parent="wInfo/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5pcv5")
+
+[node name="weaponImage" type="TextureRect" parent="wInfo/HBoxContainer/pName"]
+custom_minimum_size = Vector2(70, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_wr4uk")
+expand_mode = 5
+script = ExtResource("4_g8cs5")
+
+[node name="pAmmo" type="PanelContainer" parent="wInfo/HBoxContainer"]
+custom_minimum_size = Vector2(80, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hwb81")
+
+[node name="wAmmo" type="Label" parent="wInfo/HBoxContainer/pAmmo"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.898039, 0.898039, 0.898039, 1)
+theme_override_font_sizes/font_size = 30
+text = "99"
+horizontal_alignment = 1
+
+[node name="iAmmo" type="TextureRect" parent="wInfo/HBoxContainer/pAmmo"]
+modulate = Color(1, 1, 1, 0.231373)
+clip_children = 1
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_3aa4b")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="pAllAmmo" type="PanelContainer" parent="wInfo/HBoxContainer"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_183xh")
+
+[node name="all_ammo_panel" type="PanelContainer" parent="wInfo/HBoxContainer/pAllAmmo"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fl7lm")
+
+[node name="wAllAmmo" type="Label" parent="wInfo/HBoxContainer/pAllAmmo/all_ammo_panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_font_sizes/font_size = 20
+text = "999"
+horizontal_alignment = 1

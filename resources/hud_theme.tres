@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dxwj42fdlex1t"]
+
+[ext_resource type="FontFile" uid="uid://migm0pnx3ld8" path="res://assets/hud/fonts/Impacted2.0.ttf" id="1_f1nan"]
+
+[resource]
+default_font = ExtResource("1_f1nan")
+Fonts/fonts/normal = ExtResource("1_f1nan")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 30
