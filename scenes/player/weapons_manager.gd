@@ -5,7 +5,7 @@ extends Node3D
 
 var cur_weapon : Node3D
 
-func _input(event):
+func _input(_event):
 	weapons_selection_input()
 	fire_weapon()
 	if Input.is_action_just_pressed("action_reload"): cur_weapon.reload()
@@ -13,7 +13,7 @@ func _input(event):
 func _ready():
 	hide_weapons()
 
-func _process(delta):
+func _process(_delta):
 	if cur_weapon != null and cur_weapon.automatic:
 		if Input.is_action_pressed("action_fire"): cur_weapon.fire(cur_weapon_range)
 

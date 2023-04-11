@@ -7,13 +7,16 @@ extends Node3D
 @onready var muzzle_node : Node3D = $Graphics/Muzzle
 @onready var _head : Node3D = $"../../.."
 @onready var shell_spawner : Marker3D = $"../shotgun/Graphics/shell_spawner"
+@onready var bullet_emitters = $BulletEmitters
 
 @export var automatic : bool = false
 @export var fire_rate : float = 1.0
 @export var max_ammo : int = 30
 @export var mag_ammo : int = 10
 @export var w_range : int = 50
+@export var bullet_damage : int = 15
 @export var muzzle_flash_scale : Vector2 = Vector2(0.15, 0.15)
+@export_enum("9mm", "shotgun", "rifle") var ammo_type : String = "9mm"
 
 const _bullet_trail_prefab: PackedScene = preload("res://scenes/player/bullet_tail.tscn")
 const _muzzle_flash_prefab: PackedScene = preload("res://scenes/player/muzzle_flash.tscn")
@@ -57,7 +60,7 @@ func fire(cur_weapon_range : RayCast3D):
 			update_ammo()
 
 func reload():
-	if all_ammo == 0 or cur_ammo == mag_ammo or !can_reload:
+	if all_ammo <= 0 or cur_ammo == mag_ammo or !can_reload:
 		return
 	animation_player.play("reload")
 
@@ -67,6 +70,15 @@ func reload_ammo():
 			break
 		cur_ammo += 1
 		all_ammo -= 1
+	update_ammo()
+
+func check_ammo_shotgun():
+	if cur_ammo == mag_ammo:
+		animation_player.play("RESET")
+
+func reload_shotgun():
+	cur_ammo += 1
+	all_ammo -= 1
 	update_ammo()
 
 func visuals_fire(cur_weapon_range : RayCast3D):
@@ -92,7 +104,7 @@ func visuals_fire(cur_weapon_range : RayCast3D):
 	get_tree().get_root().add_child(shell)
 	shell.global_position = shell_spawner.global_position
 	shell.look_at(look_at_point, Vector3.UP)
-	shell.init("9mm")
+	shell.init(ammo_type)
 
 func on_timer_timeout():
 	can_shot = true

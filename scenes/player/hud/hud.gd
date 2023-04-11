@@ -11,9 +11,9 @@ func _ready():
 	Global.connect("weapon_changed", on_weapon_changed)
 	Global.connect("weapon_ammo_changed", on_weapon_shoted)
 	
-func on_weapon_changed(name, ammo, all_ammo):
+func on_weapon_changed(w_name, ammo, all_ammo):
 	$wInfo.show()
-	weapon_image.init(name)
+	weapon_image.init(w_name)
 	w_ammo.text = str(ammo)
 	w_all_ammo.text = str(all_ammo)
 

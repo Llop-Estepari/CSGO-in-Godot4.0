@@ -27,11 +27,6 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/aspect="expand"
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [input]
 
 left={
@@ -80,3 +75,7 @@ action_reload={
 3d_physics/layer_1="enviroment"
 3d_physics/layer_2="characters_collision"
 3d_physics/layer_3="hitbox"
+
+[physics]
+
+3d/default_gravity=25.0
