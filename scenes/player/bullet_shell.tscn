@@ -18,7 +18,7 @@ collision_bounce = 0.21
 script = ExtResource("1_0qr6n")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.1, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.11, 0, 0)
 cast_shadow = 0
 visibility_range_end = 8.0
 emitting = false
