@@ -1068,7 +1068,7 @@ mesh = SubResource("ArrayMesh_2jc2o")
 skeleton = NodePath("")
 
 [node name="bullet-shotgun" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
-transform = Transform3D(2.23947, -1.1112, 1.84384e-07, 1.1112, 2.23947, 1.45712e-07, -2.29935e-07, -4.8572e-08, 2.5, -0.0891317, 0.0582002, -1.19209e-07)
+transform = Transform3D(2.23947, -1.1112, 1.84384e-07, 1.1112, 2.23947, 1.45711e-07, -2.29935e-07, -4.85719e-08, 2.5, -0.0891317, 0.0582002, -1.19209e-07)
 visible = false
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_hn8rg")

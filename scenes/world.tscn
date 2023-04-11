@@ -79,6 +79,17 @@ metadata/_edit_lock_ = true
 operation = 2
 size = Vector3(29, 4, 29)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="enviroment/walls"]
+transform = Transform3D(0.897551, 0, 0.440911, 0, 1, 0, -0.440911, 0, 0.897551, -8.31273, -1, 2.94516)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="enviroment/walls"]
+transform = Transform3D(-0.441663, 0, 0.897181, 0, 1, 0, -0.897181, 0, -0.441663, -6.477, -2.40201, 4.411)
+use_collision = true
+polygon = PackedVector2Array(1.13729, 2.41091, -1.92594, 0.371025, 1.13872, 0.365508)
+depth = 2.0
+
 [node name="Enemy" type="CSGCylinder3D" parent="enviroment"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1.87307, 0.9, -3.27823)
 calculate_tangents = false
@@ -188,6 +199,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46, 0.450547, -2.726)
 material_override = SubResource("StandardMaterial3D_bq5qv")
 use_collision = true
 size = Vector3(2, 1.2, 2)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.44229, 1.5, -0.911766)
+material_override = SubResource("StandardMaterial3D_bq5qv")
+use_collision = true
+size = Vector3(2, 3, 2)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="enviroment/Stairs&2ndFloor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96, 2, 5.592)
