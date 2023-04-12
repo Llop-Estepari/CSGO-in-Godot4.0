@@ -1,16 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://d4aajvo4s2e0f"]
+[gd_scene load_steps=37 format=3 uid="uid://d4aajvo4s2e0f"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_c8uqp"]
 [ext_resource type="Script" path="res://scenes/player/weapons_manager.gd" id="2_v7xd5"]
 [ext_resource type="Script" path="res://scenes/player/weapon.gd" id="3_mpaf6"]
 [ext_resource type="PackedScene" uid="uid://crg5x86ncgwnw" path="res://scenes/player/hud/hud.tscn" id="4_i2j8p"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_1wf1a"]
-height = 1.35709
-radius = 0.4
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_j0tpx"]
-radius = 0.4
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8klu7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niklv"]
 resource_name = "metal_dark"
@@ -369,7 +364,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.75),
+"times": PackedFloat32Array(0.65),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -980,13 +975,7 @@ collision_mask = 3
 script = ExtResource("1_c8uqp")
 
 [node name="CSBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115552, 0)
-visible = false
-shape = SubResource("CylinderShape3D_1wf1a")
-
-[node name="CSFeet" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.600253, 0)
-shape = SubResource("SphereShape3D_j0tpx")
+shape = SubResource("CapsuleShape3D_8klu7")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
@@ -998,7 +987,6 @@ current = true
 script = ExtResource("2_v7xd5")
 
 [node name="pistol" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
-visible = false
 script = ExtResource("3_mpaf6")
 fire_rate = 0.25
 max_ammo = 90

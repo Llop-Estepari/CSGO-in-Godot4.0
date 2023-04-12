@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://crg5x86ncgwnw"]
+[gd_scene load_steps=17 format=3 uid="uid://crg5x86ncgwnw"]
 
 [ext_resource type="Script" path="res://scenes/player/hud/hud.gd" id="1_moqmb"]
 [ext_resource type="Theme" uid="uid://dxwj42fdlex1t" path="res://resources/hud_theme.tres" id="2_g5flb"]
 [ext_resource type="Texture2D" uid="uid://dlw13bfjgdjam" path="res://assets/hud/img_icons/hud_ammo_icon1.png" id="3_3aa4b"]
 [ext_resource type="Texture2D" uid="uid://c7n0w6w4axfgi" path="res://assets/hud/img_weapons/pistol.png" id="3_wr4uk"]
 [ext_resource type="Script" path="res://scenes/player/hud/weaponImage.gd" id="4_g8cs5"]
+[ext_resource type="Texture2D" uid="uid://cv8xjq7ldncgo" path="res://assets/hud/img_icons/2966327.png" id="6_tgpax"]
+[ext_resource type="Texture2D" uid="uid://ddicqhyvcik3j" path="res://assets/hud/img_icons/helemt_icon.png" id="7_2feto"]
+[ext_resource type="Script" path="res://scenes/player/hud/vestImage.gd" id="8_c4pco"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn0yu"]
 bg_color = Color(0.407843, 0.713726, 0.486275, 0.862745)
@@ -67,6 +70,18 @@ bg_color = Color(1, 1, 1, 0.164706)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_detail = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u0k8"]
+bg_color = Color(0.407843, 0.713726, 0.486275, 0.862745)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_detail = 12
+shadow_color = Color(0, 0, 0, 0.286275)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_moqmb")
@@ -175,3 +190,73 @@ theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
 theme_override_font_sizes/font_size = 20
 text = "999"
 horizontal_alignment = 1
+
+[node name="hInfo" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -47.0
+offset_right = 95.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_g5flb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7u0k8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="vestImage" type="TextureRect" parent="hInfo/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture = ExtResource("6_tgpax")
+expand_mode = 5
+
+[node name="HP" type="Label" parent="hInfo/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(34, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="hInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AP" type="Label" parent="hInfo/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(34, 40)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vestImage" type="TextureRect" parent="hInfo/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_2feto")
+expand_mode = 5
+script = ExtResource("8_c4pco")
