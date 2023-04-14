@@ -33,7 +33,7 @@ func hide_weapons():
 		w.hide()
 
 func set_cur_weapon(weapon : Node3D):
-	Global.emit_signal("weapon_changed", weapon.name, weapon.cur_ammo, weapon.all_ammo)
+	Global.emit_signal("weapon_changed", weapon.name, weapon.cur_ammo, weapon.all_ammo, weapon.mag_ammo)
 	#Cancel animation if player swap gun while animation is playing
 	if cur_weapon != null: cur_weapon.cancel_animations()
 	hide_weapons()

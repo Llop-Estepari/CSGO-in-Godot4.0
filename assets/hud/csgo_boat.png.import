@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlw13bfjgdjam"
-path="res://.godot/imported/hud_ammo_icon1.png-81debf4ed6f3dd351f4df3eb82decab4.ctex"
+uid="uid://dtm8huv8hxlxg"
+path="res://.godot/imported/csgo_boat.png-2128e56119776604879bbd10d3b81d96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/img_icons/hud_ammo_icon1.png"
-dest_files=["res://.godot/imported/hud_ammo_icon1.png-81debf4ed6f3dd351f4df3eb82decab4.ctex"]
+source_file="res://assets/hud/csgo_boat.png"
+dest_files=["res://.godot/imported/csgo_boat.png-2128e56119776604879bbd10d3b81d96.ctex"]
 
 [params]
 

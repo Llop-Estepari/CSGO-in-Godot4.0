@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_c8uqp"]
 [ext_resource type="Script" path="res://scenes/player/weapons_manager.gd" id="2_v7xd5"]
 [ext_resource type="Script" path="res://scenes/player/weapon.gd" id="3_mpaf6"]
-[ext_resource type="PackedScene" uid="uid://crg5x86ncgwnw" path="res://scenes/player/hud/hud.tscn" id="4_i2j8p"]
+[ext_resource type="PackedScene" uid="uid://d17hamgbnx63w" path="res://scenes/player/hud/hud.tscn" id="4_i2j8p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8klu7"]
 
@@ -367,7 +367,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.65),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
+"args": [true],
 "method": &"reload_ammo"
 }]
 }
@@ -812,25 +812,25 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.3, 0.4, 0.55, 0.65, 0.8, 0.9, 1.05),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [],
+"args": [true],
 "method": &"reload_shotgun"
 }, {
 "args": [],
 "method": &"check_ammo_shotgun"
 }, {
-"args": [],
+"args": [true],
 "method": &"reload_shotgun"
 }, {
 "args": [],
 "method": &"check_ammo_shotgun"
 }, {
-"args": [],
+"args": [true],
 "method": &"reload_shotgun"
 }, {
 "args": [],
 "method": &"check_ammo_shotgun"
 }, {
-"args": [],
+"args": [true],
 "method": &"reload_shotgun"
 }]
 }
@@ -988,8 +988,10 @@ script = ExtResource("2_v7xd5")
 
 [node name="pistol" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
 script = ExtResource("3_mpaf6")
+automatic = true
 fire_rate = 0.25
-max_ammo = 90
+max_ammo = 2
+mag_ammo = 12
 muzzle_flash_scale = Vector2(0.1, 0.1)
 
 [node name="Graphics" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol"]

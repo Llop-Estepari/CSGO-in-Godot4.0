@@ -13,8 +13,8 @@ const JUMP_VELOCITY = 6.7
 var mouse_sens = .15
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var cur_state = STATE.RUN
-var health :int= 100
-var armor :int= 100
+var health : int = 100
+var armor : int = 100
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -27,7 +27,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("action_esc"): get_hit(25)
+	if Input.is_action_just_pressed("test"): get_hit(15)
+	if Input.is_action_just_pressed("action_esc"): get_tree().quit()
 	match cur_state:
 		STATE.IDLE: pass 
 		STATE.WALK: _movement(WALK_SPEED, delta)

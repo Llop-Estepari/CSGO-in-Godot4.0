@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddicqhyvcik3j"
-path="res://.godot/imported/helemt_icon.png-124ec12361376e9e5724b22028a96eb7.ctex"
+uid="uid://kyob2j2ic3kp"
+path="res://.godot/imported/hospital-cross.png-d1a3b7e4ec48a3a2ba39a9737ee18a13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/img_icons/helemt_icon.png"
-dest_files=["res://.godot/imported/helemt_icon.png-124ec12361376e9e5724b22028a96eb7.ctex"]
+source_file="res://assets/hud/img_icons/hospital-cross.png"
+dest_files=["res://.godot/imported/hospital-cross.png-d1a3b7e4ec48a3a2ba39a9737ee18a13.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.6
 compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
+compress/normal_map=1
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h5fkom3frpqx"
-path="res://.godot/imported/vest_icon.png-ed668b8858469426d2dbc305fe79d47c.ctex"
+uid="uid://cw426kcd5dr27"
+path="res://.godot/imported/csgo_loadingscreen.jpg-22d0acf4096a929691b4a57dff1d450d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/img_icons/vest_icon.png"
-dest_files=["res://.godot/imported/vest_icon.png-ed668b8858469426d2dbc305fe79d47c.ctex"]
+source_file="res://assets/hud/csgo_loadingscreen.jpg"
+dest_files=["res://.godot/imported/csgo_loadingscreen.jpg-22d0acf4096a929691b4a57dff1d450d.ctex"]
 
 [params]
 

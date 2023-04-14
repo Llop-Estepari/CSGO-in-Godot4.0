@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv8xjq7ldncgo"
-path="res://.godot/imported/2966327.png-aac755cf5ee77e8d2d851dd369e62fb3.ctex"
+uid="uid://cmykgjaph77ck"
+path="res://.godot/imported/broken-shield.png-a752c151fec29f5a4951ac2c8f399e12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/img_icons/2966327.png"
-dest_files=["res://.godot/imported/2966327.png-aac755cf5ee77e8d2d851dd369e62fb3.ctex"]
+source_file="res://assets/hud/img_icons/broken-shield.png"
+dest_files=["res://.godot/imported/broken-shield.png-a752c151fec29f5a4951ac2c8f399e12.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.6
 compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
+compress/normal_map=1
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://migm0pnx3ld8"
-path="res://.godot/imported/Impacted2.0.ttf-1b8892279234c284d1dbd250e3fb0aee.fontdata"
+uid="uid://c81012kylumnr"
+path="res://.godot/imported/BebasNeue-Regular.otf-c7b0350d359f01974bd4d7045a00cf21.fontdata"
 
 [deps]
 
-source_file="res://assets/hud/fonts/Impacted2.0.ttf"
-dest_files=["res://.godot/imported/Impacted2.0.ttf-1b8892279234c284d1dbd250e3fb0aee.fontdata"]
+source_file="res://assets/hud/fonts/BebasNeue-Regular.otf"
+dest_files=["res://.godot/imported/BebasNeue-Regular.otf-c7b0350d359f01974bd4d7045a00cf21.fontdata"]
 
 [params]
 

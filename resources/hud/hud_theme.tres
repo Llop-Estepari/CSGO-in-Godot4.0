@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://vsrwhutw8ulw"]
+
+[ext_resource type="FontFile" uid="uid://c81012kylumnr" path="res://assets/hud/fonts/BebasNeue-Regular.otf" id="2_fishm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6c6e"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 0.529412)
+expand_margin_top = 4.0
+
+[resource]
+default_font = ExtResource("2_fishm")
+default_font_size = 40
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.235294)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 8
+Panel/styles/panel = SubResource("StyleBoxFlat_w6c6e")
