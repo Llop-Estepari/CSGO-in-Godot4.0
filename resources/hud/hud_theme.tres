@@ -4,7 +4,14 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6c6e"]
 bg_color = Color(0.184314, 0.184314, 0.184314, 0.529412)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_blend = true
 expand_margin_top = 4.0
+expand_margin_right = 60.0
 
 [resource]
 default_font = ExtResource("2_fishm")
