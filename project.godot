@@ -13,8 +13,8 @@ config_version=5
 config/name="Low Budget CSGO"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-boot_splash/image="res://assets/hud/csgo_boat.png"
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/project/csgo_boat.png"
+config/icon="res://assets/project/csgo-icon.png"
 
 [autoload]
 

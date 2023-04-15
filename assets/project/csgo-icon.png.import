@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtm8huv8hxlxg"
-path="res://.godot/imported/csgo_boat.png-2128e56119776604879bbd10d3b81d96.ctex"
+uid="uid://dkhmjl40o5s10"
+path="res://.godot/imported/csgo-icon.png-66285d42835886a2201a19148a789ee1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/csgo_boat.png"
-dest_files=["res://.godot/imported/csgo_boat.png-2128e56119776604879bbd10d3b81d96.ctex"]
+source_file="res://assets/project/csgo-icon.png"
+dest_files=["res://.godot/imported/csgo-icon.png-66285d42835886a2201a19148a789ee1.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.6
 compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
+compress/normal_map=1
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

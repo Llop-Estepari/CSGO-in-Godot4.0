@@ -4,6 +4,7 @@ extends CanvasLayer
 ##Health
 @onready var h_label = $hContainer/HBoxContainer/health/Label
 @onready var h_progress_bar = $hContainer/HBoxContainer/health/ProgressBar
+@onready var h_animation_player = $hContainer/HBoxContainer/health/AnimationPlayer
 ##Armor
 @onready var a_label = $hContainer/HBoxContainer/armor/Label
 @onready var a_progress_bar = $hContainer/HBoxContainer/armor/ProgressBar
@@ -36,6 +37,9 @@ func on_weapon_shoted(mag, all_ammo, reload):
 		h_box_bullet.reload(mag)
 
 func on_health_changed(hp, ap):
+	if int(h_label.text) > hp or int(a_label.text) > ap:
+		h_animation_player.seek(0.0)
+		h_animation_player.play("wounded")
 	h_label.text = str(hp)
 	h_progress_bar.value = hp
 	a_label.text = str(ap)
