@@ -1,33 +1,54 @@
-[gd_scene load_steps=26 format=3 uid="uid://d17hamgbnx63w"]
+[gd_scene load_steps=33 format=3 uid="uid://d17hamgbnx63w"]
 
 [ext_resource type="Script" path="res://scenes/player/hud/hud.gd" id="1_moqmb"]
 [ext_resource type="Texture2D" uid="uid://b55biqrx856iw" path="res://assets/hud/img_icons/crosshair.png" id="2_4yoaq"]
 [ext_resource type="Theme" uid="uid://vsrwhutw8ulw" path="res://resources/hud/hud_theme.tres" id="3_6ndcs"]
 [ext_resource type="Texture2D" uid="uid://kyob2j2ic3kp" path="res://assets/hud/img_icons/hospital-cross.png" id="3_od1f0"]
 [ext_resource type="Texture2D" uid="uid://cmykgjaph77ck" path="res://assets/hud/img_icons/broken-shield.png" id="5_5enia"]
+[ext_resource type="Script" path="res://scenes/player/hud/armorTextRect.gd" id="6_fbqxm"]
 [ext_resource type="Texture2D" uid="uid://bj6mrnbh471hi" path="res://assets/hud/img_icons/bullet.png" id="6_jn4o3"]
 [ext_resource type="Script" path="res://scenes/player/hud/h_box_bullet.gd" id="6_t6tic"]
+[ext_resource type="Texture2D" uid="uid://bwkortbgqtwy8" path="res://assets/hud/img_icons/helmet.png" id="7_3euxy"]
+
+[sub_resource type="Gradient" id="Gradient_7sjeo"]
+offsets = PackedFloat32Array(0, 0.0972973, 0.637838, 0.708108, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.111197, 0.111197, 0.111197, 0.662745, 0.180392, 0.180392, 0.180392, 0.662745, 0.0470588, 0.0470588, 0.0470588, 0.243137, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o568a"]
+gradient = SubResource("Gradient_7sjeo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a45ke"]
+texture = SubResource("GradientTexture1D_o568a")
+expand_margin_top = 5.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2f4m3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut2au"]
-bg_color = Color(0.270588, 0.270588, 0.270588, 1)
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
 corner_detail = 1
-shadow_color = Color(0, 0, 0, 0.301961)
-shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.117647)
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6kpk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr2dg"]
-bg_color = Color(0.184314, 0.184314, 0.184314, 0.529412)
+bg_color = Color(0.905882, 0.905882, 0.862745, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.239216, 0.239216, 0.239216, 1)
-border_blend = true
-expand_margin_top = 12.0
-expand_margin_right = 5.0
+border_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="Gradient" id="Gradient_024id"]
+offsets = PackedFloat32Array(0, 0.259459, 0.891892, 0.908108, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.0728426, 0.0728426, 0.0728426, 0.662745, 0.122252, 0.122252, 0.122252, 0.662745, 0.0470588, 0.0470588, 0.0470588, 0.356863, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dwbhn"]
+gradient = SubResource("Gradient_024id")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0fx2"]
+texture = SubResource("GradientTexture1D_dwbhn")
+expand_margin_top = 10.0
+expand_margin_right = 25.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g16yv"]
 
@@ -648,10 +669,10 @@ tracks/3/path = NodePath("slot_3:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.025),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -838,10 +859,10 @@ tracks/2/path = NodePath("slot_4:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.025),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1142,7 +1163,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.15, 0.2),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
-"values": [Vector2(-10, 30.5), Vector2(12, 30.5)]
+"values": [Vector2(-6, 41.5), Vector2(14, 41.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1204,6 +1225,54 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("slot_4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("slot_3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("slot_2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("slot_1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7mbmc"]
 _data = {
@@ -1246,10 +1315,13 @@ custom_minimum_size = Vector2(470, 40)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 470.0
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 480.0
+offset_bottom = -1.0
 grow_vertical = 0
 theme = ExtResource("3_6ndcs")
+theme_override_styles/panel = SubResource("StyleBoxTexture_a45ke")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hContainer"]
 layout_mode = 1
@@ -1274,7 +1346,7 @@ custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2f4m3")
 
-[node name="TextureRect2" type="TextureRect" parent="hContainer/HBoxContainer/health/Panel"]
+[node name="TextureRect" type="TextureRect" parent="hContainer/HBoxContainer/health/Panel"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -1294,7 +1366,7 @@ texture = ExtResource("3_od1f0")
 expand_mode = 4
 
 [node name="Label" type="Label" parent="hContainer/HBoxContainer/health"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(66, 43)
 layout_mode = 2
 size_flags_vertical = 1
 text = "100"
@@ -1302,12 +1374,13 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="hContainer/HBoxContainer/health"]
-custom_minimum_size = Vector2(100, 15)
+custom_minimum_size = Vector2(100, 12)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_ut2au")
 theme_override_styles/fill = SubResource("StyleBoxFlat_m6kpk")
-value = 100.0
+value = 50.0
 show_percentage = false
 
 [node name="armor" type="HBoxContainer" parent="hContainer/HBoxContainer"]
@@ -1322,7 +1395,7 @@ custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2f4m3")
 
-[node name="TextureRect" type="TextureRect" parent="hContainer/HBoxContainer/armor/Panel"]
+[node name="armorTextRect" type="TextureRect" parent="hContainer/HBoxContainer/armor/Panel"]
 custom_minimum_size = Vector2(22, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1340,9 +1413,26 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_5enia")
 expand_mode = 5
+script = ExtResource("6_fbqxm")
+
+[node name="helmet_icon" type="TextureRect" parent="hContainer/HBoxContainer/armor/Panel/armorTextRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_3euxy")
+expand_mode = 5
 
 [node name="Label" type="Label" parent="hContainer/HBoxContainer/armor"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(66, 43)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
@@ -1351,7 +1441,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="hContainer/HBoxContainer/armor"]
-custom_minimum_size = Vector2(100, 15)
+custom_minimum_size = Vector2(100, 12)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_ut2au")
@@ -1360,19 +1450,19 @@ value = 100.0
 show_percentage = false
 
 [node name="wContainer" type="Panel" parent="."]
-custom_minimum_size = Vector2(230, 40)
+custom_minimum_size = Vector2(290, 40)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -235.0
+offset_left = -324.0
 offset_top = -40.0
-offset_right = -5.0
+offset_right = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_6ndcs")
-theme_override_styles/panel = SubResource("StyleBoxFlat_qr2dg")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0fx2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="wContainer"]
 layout_mode = 1

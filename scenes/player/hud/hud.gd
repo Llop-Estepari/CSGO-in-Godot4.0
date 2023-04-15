@@ -7,6 +7,7 @@ extends CanvasLayer
 ##Armor
 @onready var a_label = $hContainer/HBoxContainer/armor/Label
 @onready var a_progress_bar = $hContainer/HBoxContainer/armor/ProgressBar
+@onready var armor_text_rect = $hContainer/HBoxContainer/armor/Panel/armorTextRect
 
 #Weapon Container
 #Ammo
@@ -39,3 +40,4 @@ func on_health_changed(hp, ap):
 	h_progress_bar.value = hp
 	a_label.text = str(ap)
 	a_progress_bar.value = ap
+	armor_text_rect.update_armor_icon(ap)
