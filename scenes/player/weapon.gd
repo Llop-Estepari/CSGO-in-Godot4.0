@@ -6,7 +6,7 @@ extends Node3D
 @onready var animation_player = $AnimationPlayer
 @onready var muzzle_node : Node3D = $Graphics/Muzzle
 @onready var _head : Node3D = $"../../.."
-@onready var shell_spawner : Marker3D = $"../shotgun/Graphics/shell_spawner"
+@onready var shell_spawner : Marker3D = graphics.get_child(2)
 @onready var bullet_emitters = $BulletEmitters
 
 @export var automatic : bool = false
@@ -102,7 +102,7 @@ func visuals_fire(cur_weapon_range : RayCast3D):
 	#SHELL
 	var shell = _shell_prefab.instantiate()
 	get_tree().get_root().add_child(shell)
-	shell.global_position = shell_spawner.global_position
+	shell.position = shell_spawner.global_position
 	shell.look_at(look_at_point, Vector3.UP)
 	shell.init(ammo_type)
 

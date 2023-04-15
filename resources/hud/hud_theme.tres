@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://vsrwhutw8ulw"]
 
-[ext_resource type="FontFile" uid="uid://c81012kylumnr" path="res://assets/hud/fonts/BebasNeue-Regular.otf" id="2_fishm"]
+[ext_resource type="FontFile" uid="uid://dgx1gsj7al2rw" path="res://assets/hud/fonts/AzureoN.ttf" id="1_a46o8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6c6e"]
 bg_color = Color(0.184314, 0.184314, 0.184314, 0.529412)
@@ -10,14 +10,11 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.239216, 0.239216, 0.239216, 1)
 border_blend = true
-expand_margin_top = 4.0
-expand_margin_right = 60.0
+expand_margin_top = 6.0
+expand_margin_right = 40.0
 
 [resource]
-default_font = ExtResource("2_fishm")
+default_font = ExtResource("1_a46o8")
 default_font_size = 40
-Label/colors/font_shadow_color = Color(0, 0, 0, 0.235294)
-Label/constants/shadow_offset_x = 0
-Label/constants/shadow_offset_y = 0
-Label/constants/shadow_outline_size = 8
+Label/constants/shadow_outline_size = 0
 Panel/styles/panel = SubResource("StyleBoxFlat_w6c6e")

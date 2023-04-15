@@ -23,12 +23,12 @@ func _ready():
 func on_weapon_changed(w_name, ammo, all_ammo, mag_ammo):
 	$wContainer.show()
 	cur_ammo.text = str(ammo)
-	max_ammo.text = str("/ ", all_ammo)
+	max_ammo.text = str("/", all_ammo)
 	h_box_bullet.weapon_changed(ammo, all_ammo, mag_ammo)
 
 func on_weapon_shoted(mag, all_ammo, reload):
 	cur_ammo.text = str(mag)
-	max_ammo.text = str("/ ", all_ammo)
+	max_ammo.text = str("/", all_ammo)
 	if !reload:
 		h_box_bullet.update(mag, all_ammo)
 	else:

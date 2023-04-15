@@ -6,25 +6,27 @@
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pntxj"]
 direction = Vector3(0, 1, 1)
 spread = 10.0
-initial_velocity_min = 1.0
-initial_velocity_max = 2.0
+gravity = Vector3(0, -40, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+linear_accel_min = 20.0
+linear_accel_max = 20.0
 scale_min = 2.0
 scale_max = 2.0
-collision_mode = 1
-collision_friction = 0.05
-collision_bounce = 0.21
 
 [node name="shell_particle" type="Node3D"]
 script = ExtResource("1_0qr6n")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.11, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.1, 0, 0)
 cast_shadow = 0
 visibility_range_end = 8.0
 emitting = false
 amount = 1
+lifetime = 0.3
 one_shot = true
 randomness = 1.0
+visibility_aabb = AABB(-2.0693, -2.35743, -2.32846, 4.13861, 4.71486, 4.65691)
 draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_pntxj")
 draw_pass_1 = ExtResource("2_3bb6c")

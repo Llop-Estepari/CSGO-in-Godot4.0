@@ -1019,7 +1019,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0386447, -0.0888985)
 
 [node name="shell_spawner" type="Marker3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00567301, 0.035441, 0.0210319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304336, 0.035441, -0.034313)
 gizmo_extents = 0.0
 
 [node name="BulletEmitters" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol"]
@@ -1068,7 +1068,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103533, -0.23032)
 
 [node name="shell_spawner" type="Marker3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0110236, 0.035441, -0.0106512)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00671567, 0.0936913, 0.0859396)
 
 [node name="BulletEmitters" type="Node3D" parent="Pivot/Camera3D/weapons_manager/shotgun"]
 
