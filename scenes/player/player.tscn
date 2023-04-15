@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d4aajvo4s2e0f"]
+[gd_scene load_steps=40 format=3 uid="uid://d4aajvo4s2e0f"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_c8uqp"]
 [ext_resource type="Script" path="res://scenes/player/weapons_manager.gd" id="2_v7xd5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d17hamgbnx63w" path="res://scenes/player/hud/hud.tscn" id="4_i2j8p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8klu7"]
+radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niklv"]
 resource_name = "metal_dark"
@@ -968,6 +969,15 @@ _data = {
 "shot": SubResource("Animation_732p0")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11jat"]
+albedo_color = Color(0, 0.258824, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_548g7"]
+size = Vector3(0.2, 0.2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypi0m"]
+albedo_color = Color(1, 0, 0, 1)
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 2
@@ -987,7 +997,6 @@ current = true
 script = ExtResource("2_v7xd5")
 
 [node name="pistol" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
-visible = false
 script = ExtResource("3_mpaf6")
 automatic = true
 fire_rate = 0.25
@@ -1088,3 +1097,42 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="HUD" parent="Pivot/Camera3D" instance=ExtResource("4_i2j8p")]
+
+[node name="Debug" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Debug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_11jat")
+mesh = SubResource("BoxMesh_548g7")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Debug"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.00718, 0)
+material_override = SubResource("StandardMaterial3D_ypi0m")
+mesh = SubResource("BoxMesh_548g7")
+skeleton = NodePath("../..")
+
+[node name="DEBUG_LABEL" type="Label" parent="Debug"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -82.0
+offset_right = 20.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "111"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3D" type="Label3D" parent="Debug"]
+transform = Transform3D(1, 0, 0, 0, 0.775925, 0.630825, 0, -0.630825, 0.775925, 0, -0.70688, -0.872929)
+text = "-Z"
+
+[node name="Label3D2" type="Label3D" parent="Debug"]
+transform = Transform3D(0, 0.57057, -0.821249, 0, 0.821249, 0.57057, 1, 0, 0, 0.687676, -0.707, 0)
+text = "X"

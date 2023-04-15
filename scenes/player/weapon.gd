@@ -64,22 +64,22 @@ func reload():
 		return
 	animation_player.play("reload")
 
-func reload_ammo(reload := false):
+func reload_ammo(_reload := false):
 	while cur_ammo < mag_ammo:
 		if all_ammo == 0:
 			break
 		cur_ammo += 1
 		all_ammo -= 1
-	update_ammo(reload)
+	update_ammo(_reload)
 
 func check_ammo_shotgun():
 	if cur_ammo == mag_ammo:
 		animation_player.play("RESET")
 
-func reload_shotgun(reload := false):
+func reload_shotgun(_reload := false):
 	cur_ammo += 1
 	all_ammo -= 1
-	update_ammo(reload)
+	update_ammo(_reload)
 
 func visuals_fire(cur_weapon_range : RayCast3D):
 	animation_player.play("shot")
@@ -117,8 +117,8 @@ func sway(delta):
 		else: graphics.rotation = graphics.rotation.lerp(Vector3(0,0,0), sway_lerp * delta)
 
 #UPDATE AMMO IN HUD
-func update_ammo(reload := false):
-	Global.emit_signal("weapon_ammo_changed", cur_ammo, all_ammo, reload)
+func update_ammo(_reload := false):
+	Global.emit_signal("weapon_ammo_changed", cur_ammo, all_ammo, _reload)
 
 func show_weapon():
 	show()

@@ -5,7 +5,7 @@ var max_slots = 5
 
 var cur_max_ammo : int = 0
 
-func update(ammo, max_mag_ammo : int = cur_max_ammo):
+func update(ammo):
 	check_low_ammo(ammo)
 	if ammo > 4: animation_player.play("shot")
 	elif ammo == 4: animation_player.play("5to4")
