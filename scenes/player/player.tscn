@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d4aajvo4s2e0f"]
+[gd_scene load_steps=41 format=3 uid="uid://d4aajvo4s2e0f"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_c8uqp"]
 [ext_resource type="Script" path="res://scenes/player/weapons_manager.gd" id="2_v7xd5"]
@@ -972,11 +972,14 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11jat"]
 albedo_color = Color(0, 0.258824, 1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_548g7"]
-size = Vector3(0.2, 0.2, 5)
+[sub_resource type="QuadMesh" id="QuadMesh_qlen5"]
+size = Vector2(0.1, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypi0m"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bfkms"]
+size = Vector2(3, 0.1)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -987,16 +990,16 @@ script = ExtResource("1_c8uqp")
 [node name="CSBody" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_8klu7")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Camera_Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="Camera3D" type="Camera3D" parent="Camera_Pivot"]
 current = true
 
-[node name="weapons_manager" type="Node3D" parent="Pivot/Camera3D"]
+[node name="weapons_manager" type="Node3D" parent="Camera_Pivot/Camera3D"]
 script = ExtResource("2_v7xd5")
 
-[node name="pistol" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
+[node name="pistol" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager"]
 script = ExtResource("3_mpaf6")
 automatic = true
 fire_rate = 0.25
@@ -1004,113 +1007,115 @@ max_ammo = 24
 mag_ammo = 12
 muzzle_flash_scale = Vector2(0.1, 0.1)
 
-[node name="Graphics" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol"]
+[node name="Graphics" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158, -0.121706, -0.250106)
 
-[node name="pistol-coonan" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics"]
+[node name="pistol-coonan" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics"]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0)
 
-[node name="mag" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
+[node name="mag" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0807214, -0.0439092, 0)
 mesh = SubResource("ArrayMesh_06cqt")
 skeleton = NodePath("")
 
-[node name="reload" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
+[node name="reload" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
 transform = Transform3D(1, 1.49012e-07, 3.55271e-15, -1.49012e-07, 1, -8.88178e-16, -3.55271e-15, 8.88179e-16, 1, -0.0784574, -0.00214954, 0)
 mesh = SubResource("ArrayMesh_pvgk7")
 skeleton = NodePath("")
 
-[node name="body" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
+[node name="body" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics/pistol-coonan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784574, -0.00214954, 0)
 mesh = SubResource("ArrayMesh_5cu55")
 skeleton = NodePath("")
 
-[node name="Muzzle" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics"]
+[node name="Muzzle" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0386447, -0.0888985)
 
-[node name="shell_spawner" type="Marker3D" parent="Pivot/Camera3D/weapons_manager/pistol/Graphics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304336, 0.035441, -0.034313)
+[node name="shell_spawner" type="Marker3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol/Graphics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304336, 0.035441, -0.0165134)
 gizmo_extents = 0.0
 
-[node name="BulletEmitters" type="Node3D" parent="Pivot/Camera3D/weapons_manager/pistol"]
+[node name="BulletEmitters" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/pistol"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Camera3D/weapons_manager/pistol"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Pivot/Camera3D/weapons_manager/pistol"]
 autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_028bm")
 }
 
-[node name="Timer" type="Timer" parent="Pivot/Camera3D/weapons_manager/pistol"]
+[node name="Timer" type="Timer" parent="Camera_Pivot/Camera3D/weapons_manager/pistol"]
 one_shot = true
 
-[node name="shotgun" type="Node3D" parent="Pivot/Camera3D/weapons_manager"]
+[node name="shotgun" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager"]
 visible = false
 script = ExtResource("3_mpaf6")
 max_ammo = 20
 mag_ammo = 4
 ammo_type = "shotgun"
 
-[node name="Graphics" type="Node3D" parent="Pivot/Camera3D/weapons_manager/shotgun"]
+[node name="Graphics" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15693, -0.189337, -0.351602)
 
-[node name="shotgun" type="Node3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
+[node name="shotgun" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 0, 0, 0)
 
-[node name="reloader" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
+[node name="reloader" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
 transform = Transform3D(0.104692, 0, 0, 0, 0.104692, 0, -4.44089e-16, 0, 0.104692, 0.0940678, 0.11429, 1.49012e-08)
 mesh = SubResource("ArrayMesh_rn6u5")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_acjud")
 
-[node name="body" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
+[node name="body" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
 transform = Transform3D(0.104692, 0, 0, 0, 0.104692, 0, 0, 0, 0.104692, -0.216798, 0.0685969, 0)
 mesh = SubResource("ArrayMesh_2jc2o")
 skeleton = NodePath("")
 
-[node name="bullet-shotgun" type="MeshInstance3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
+[node name="bullet-shotgun" type="MeshInstance3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics/shotgun"]
 transform = Transform3D(2.23947, -1.1112, 1.84384e-07, 1.1112, 2.23947, 1.45711e-07, -2.29935e-07, -4.85719e-08, 2.5, -0.0891317, 0.0582002, -1.19209e-07)
 visible = false
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_hn8rg")
 skeleton = NodePath("")
 
-[node name="Muzzle" type="Node3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
+[node name="Muzzle" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103533, -0.23032)
 
-[node name="shell_spawner" type="Marker3D" parent="Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
+[node name="shell_spawner" type="Marker3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun/Graphics"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00671567, 0.0936913, 0.0859396)
 
-[node name="BulletEmitters" type="Node3D" parent="Pivot/Camera3D/weapons_manager/shotgun"]
+[node name="BulletEmitters" type="Node3D" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Camera3D/weapons_manager/shotgun"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun"]
 autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_pg14r")
 }
 
-[node name="Timer" type="Timer" parent="Pivot/Camera3D/weapons_manager/shotgun"]
+[node name="Timer" type="Timer" parent="Camera_Pivot/Camera3D/weapons_manager/shotgun"]
 one_shot = true
 
-[node name="cur_weapon_range" type="RayCast3D" parent="Pivot/Camera3D/weapons_manager"]
+[node name="cur_weapon_range" type="RayCast3D" parent="Camera_Pivot/Camera3D/weapons_manager"]
 target_position = Vector3(0, 0, -1)
 collision_mask = 5
 collide_with_areas = true
 
-[node name="HUD" parent="Pivot/Camera3D" instance=ExtResource("4_i2j8p")]
+[node name="HUD" parent="Camera_Pivot/Camera3D" instance=ExtResource("4_i2j8p")]
 
 [node name="Debug" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Debug"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.996964, 0)
 material_override = SubResource("StandardMaterial3D_11jat")
-mesh = SubResource("BoxMesh_548g7")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_qlen5")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Debug"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.00718, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Debug/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0887e-10, 0.00477839)
 material_override = SubResource("StandardMaterial3D_ypi0m")
-mesh = SubResource("BoxMesh_548g7")
-skeleton = NodePath("../..")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_bfkms")
+skeleton = NodePath("../../..")
 
 [node name="DEBUG_LABEL" type="Label" parent="Debug"]
 anchors_preset = 7
@@ -1125,7 +1130,6 @@ offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
-text = "111"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1134,5 +1138,5 @@ transform = Transform3D(1, 0, 0, 0, 0.775925, 0.630825, 0, -0.630825, 0.775925, 
 text = "-Z"
 
 [node name="Label3D2" type="Label3D" parent="Debug"]
-transform = Transform3D(0, 0.57057, -0.821249, 0, 0.821249, 0.57057, 1, 0, 0, 0.687676, -0.707, 0)
-text = "X"
+transform = Transform3D(0, -0.693616, -0.720345, 0, 0.720345, -0.693616, 1, 0, 0, -0.855841, -0.707, 0)
+text = "X-"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgd5bs1rnl4fs"]
+
+[ext_resource type="Script" path="res://scenes/bot.gd" id="1_o66n4"]
+[ext_resource type="Texture2D" uid="uid://b5cftsd40kwlx" path="res://assets/kenney_prototype-textures/Green/texture_03.png" id="2_xvalt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_73eap"]
+radius = 0.19469
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg65c"]
+albedo_texture = ExtResource("2_xvalt")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7hwp3"]
+radius = 0.2
+
+[node name="Bot" type="CharacterBody3D"]
+script = ExtResource("1_o66n4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_73eap")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_xg65c")
+mesh = SubResource("CapsuleMesh_7hwp3")

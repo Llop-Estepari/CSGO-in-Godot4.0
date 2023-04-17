@@ -102,3 +102,7 @@ test={
 3d_physics/layer_1="enviroment"
 3d_physics/layer_2="characters_collision"
 3d_physics/layer_3="hitbox"
+
+[physics]
+
+3d/default_gravity=25.0

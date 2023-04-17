@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjvj56mqp3ju5"]
+[gd_scene load_steps=13 format=3 uid="uid://cjvj56mqp3ju5"]
 
 [ext_resource type="Texture2D" uid="uid://d0bfphxjqlgoe" path="res://assets/kenney_prototype-textures/Dark/texture_08.png" id="1_ywdyi"]
 [ext_resource type="Texture2D" uid="uid://b0frkbelah12j" path="res://assets/kenney_prototype-textures/Orange/texture_04.png" id="2_cxggt"]
 [ext_resource type="PackedScene" uid="uid://d4aajvo4s2e0f" path="res://scenes/player/player.tscn" id="3_yigou"]
-[ext_resource type="Texture2D" uid="uid://b4g40ucv0v8y0" path="res://assets/kenney_prototype-textures/Red/texture_09.png" id="4_i4pb6"]
-[ext_resource type="Texture2D" uid="uid://con108hf45i1b" path="res://assets/kenney_prototype-textures/Green/texture_13.png" id="4_rf37u"]
 [ext_resource type="Texture2D" uid="uid://bqvijfccqm3fn" path="res://assets/kenney_prototype-textures/Dark/texture_07.png" id="5_ktc2b"]
+[ext_resource type="PackedScene" uid="uid://cgd5bs1rnl4fs" path="res://scenes/bot.tscn" id="5_t2042"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vpb27"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,14 +27,6 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1eqa"]
 albedo_texture = ExtResource("2_cxggt")
 uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm7uo"]
-albedo_texture = ExtResource("4_i4pb6")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuu5y"]
-albedo_texture = ExtResource("4_rf37u")
-uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq5qv"]
 albedo_texture = ExtResource("5_ktc2b")
@@ -86,60 +77,6 @@ transform = Transform3D(-0.441663, 0, 0.897181, 0, 1, 0, -0.897181, 0, -0.441663
 use_collision = true
 polygon = PackedVector2Array(1.13729, 2.41091, -1.92594, 0.371025, 1.13872, 0.365508)
 depth = 2.0
-
-[node name="Enemy" type="CSGCylinder3D" parent="enviroment"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1.87307, 0.9, -3.27823)
-calculate_tangents = false
-use_collision = true
-collision_layer = 2
-collision_mask = 0
-radius = 0.3
-height = 1.8
-sides = 6
-cone = true
-smooth_faces = false
-material = SubResource("StandardMaterial3D_xm7uo")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="enviroment/Enemy"]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.8558e-08, -1.12737, 0)
-radius = 0.3
-material = SubResource("StandardMaterial3D_kuu5y")
-
-[node name="Enemy2" type="CSGCylinder3D" parent="enviroment"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4.78893, 0.9, -5.88115)
-calculate_tangents = false
-use_collision = true
-collision_layer = 2
-collision_mask = 0
-radius = 0.3
-height = 1.8
-sides = 6
-cone = true
-smooth_faces = false
-material = SubResource("StandardMaterial3D_xm7uo")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="enviroment/Enemy2"]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.8558e-08, -1.12737, 0)
-radius = 0.3
-material = SubResource("StandardMaterial3D_kuu5y")
-
-[node name="Enemy3" type="CSGCylinder3D" parent="enviroment"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.835448, 0.9, -5.88115)
-calculate_tangents = false
-use_collision = true
-collision_layer = 2
-collision_mask = 0
-radius = 0.3
-height = 1.8
-sides = 6
-cone = true
-smooth_faces = false
-material = SubResource("StandardMaterial3D_xm7uo")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="enviroment/Enemy3"]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.8558e-08, -1.12737, 0)
-radius = 0.3
-material = SubResource("StandardMaterial3D_kuu5y")
 
 [node name="Stairs&2ndFloor" type="Node3D" parent="enviroment"]
 
@@ -219,3 +156,5 @@ shape = SubResource("BoxShape3D_4uv2l")
 
 [node name="Player" parent="." instance=ExtResource("3_yigou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+
+[node name="Bot" parent="." instance=ExtResource("5_t2042")]
